@@ -1,9 +1,9 @@
 <?php
 // Paramètres de connexion
 $host = 'localhost';         // Adresse du serveur (localhost si la base est sur la même machine)
-$dbname = 'dbname';        // Nom de la base de données
-$username = 'username';   // Nom d'utilisateur MySQL
-$password = '';  // Mot de passe de l'utilisateur
+$dbname = 'esd';        // Nom de la base de données
+$username = 'esd';   // Nom d'utilisateur MySQL
+$password = 'esd974';  // Mot de passe de l'utilisateur
 
 try {
     // Création de la connexion PDO
