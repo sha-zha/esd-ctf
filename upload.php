@@ -1,3 +1,40 @@
+<?php
+// Définir le chemin du répertoire à scanner
+$directory = './uploads'; // Remplace ceci par le chemin réel
+
+// Vérifier si le répertoire existe
+if (is_dir($directory)) {
+    // Ouvrir le répertoire
+    if ($handle = opendir($directory)) {
+        $files = []; // Tableau pour stocker les fichiers
+
+        // Lire les fichiers du répertoire
+        while (false !== ($file = readdir($handle))) {
+            // Ignorer les entrées spéciales '.' et '..'
+            if ($file != '.' && $file != '..') {
+                // Vérifier si c'est un fichier
+                if (is_file($directory . '/' . $file)) {
+                    $files[] = $file; // Ajouter le fichier au tableau
+                }
+            }
+        }
+
+        // Fermer le gestionnaire de répertoire
+        closedir($handle);
+
+        // Vérifier si des fichiers ont été trouvés
+        if (count($files) > 0) {
+            echo "Fichiers trouvés dans le répertoire '$directory':<br>";
+            foreach ($files as $file) {
+                echo $file . "<br>"; // Afficher chaque fichier
+            }
+        } else {
+            echo "Aucun fichier trouvé dans le répertoire '$directory'.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
