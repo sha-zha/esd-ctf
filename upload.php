@@ -21,16 +21,6 @@ if (is_dir($directory)) {
 
         // Fermer le gestionnaire de répertoire
         closedir($handle);
-
-        // Vérifier si des fichiers ont été trouvés
-        if (count($files) > 0) {
-            echo "Fichiers trouvés dans le répertoire '$directory':<br>";
-            foreach ($files as $file) {
-                echo $file . "<br>"; // Afficher chaque fichier
-            }
-        } else {
-            echo "Aucun fichier trouvé dans le répertoire '$directory'.";
-        }
     }
 }
 ?>
@@ -58,11 +48,37 @@ if (is_dir($directory)) {
     </nav>
     <h2 class="text-center">Bienvenue!</h2>
 
-    <form action="./backend/upload.php" method="post" enctype="multipart/form-data" class="card my-2 p-2 w-50 mx-auto">
+    <form action="./backend/upload.php" method="post" enctype="multipart/form-data" class="my-2 p-2 w-50 mx-auto">
         Choisissez un fichier à télécharger :
-        <input type="file" name="file"><br>
+        <input type="file" class="form-control" name="file"><br>
         <input type="submit" value="Télécharger" class="btn btn-primary">
     </form>
+
+    <div class="w-50 mx-auto my-2 p-2 card">
+        <?php
+        // Vérifier si des fichiers ont été trouvés
+        if (count($files) > 0) {
+            echo "Fichiers trouvés dans le répertoire:<br>";
+            ?>
+            <form action="">
+
+                <?php
+                foreach ($files as $file) { ?>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="btn<?= $file ?>" autocomplete="off" name=""
+                            value="<?= $file ?>" />
+                        <label class="form-check-label" for="btn<?= $file ?>"><?= $file ?></label>
+                    </div>
+                    <?php
+                }
+                ?>
+                <button class="btn btn-primary mt-2" type="submit">Vider</button>
+            </form>
+            <?php
+        } else {
+            echo "Aucun fichier trouvé.";
+        } ?>
+    </div>
 </body>
 
 </html>

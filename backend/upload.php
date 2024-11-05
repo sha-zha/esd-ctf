@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     $uploadFile = '../uploads/'. $_FILES['file']['name'];
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile)) {
-        echo "Le fichier a été téléchargé avec succès.";
+        header("Location: ../upload.php");
     } else {
-        echo "Échec du téléchargement du fichier.";
+        header("Location: ../upload.php");
     }
 }
