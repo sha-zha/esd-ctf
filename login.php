@@ -17,7 +17,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 
     <form method="post" action="./backend/login.php" class="card my-2 p-2 w-50 d-flex">
         <h2 class="text-center">Se connecter</h2>
-        Nom d'utilisateur : <input type="text" class="form-control" name="username"><br>
+        Nom d'utilisateur : <input type="text" class="form-control" name="lastnanme"><br>
         Mot de passe : <input type="password" class="form-control" name="password"><br>
         <input type="submit" class="btn btn-primary" value="Se connecter">
         <a class="text-center" href="./signup.php">s'inscrire</a>
